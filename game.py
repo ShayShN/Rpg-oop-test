@@ -49,7 +49,7 @@ class Game:
                 roll_20 = self.roll_dice(20)
                 roll_20 += monster.speed
                 if roll_20 < player.rating_armor:
-                    rool_attack = self.roll_dice(6) + monster.power
+                    rool_attack = (self.roll_dice(6)) + (monster.power)
                     if monster.weapon == "knife":
                         rool_attack *= 0.5
                         player.hp -= rool_attack
@@ -73,11 +73,11 @@ class Game:
             
 
     def start(self):
-        user = Game.show_menu(self)
+        user = Game.show_menu()
         if user == "b":
-            player = self.create_player(self)
-            monster = self.choos_random_monster(self) 
-            self.battle(self,player, monster)
+            player = self.create_player()
+            monster = self.choos_random_monster() 
+            self.battle(player, monster)
             return("wwoonn")
         else:
             return( "end")
