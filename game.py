@@ -30,7 +30,8 @@ class Game:
         roll_monster = g1.roll_dice(6)
         roll_monster += monster.speed
         
-        while True:
+        while player.hp > 0 or monster.hp > 0:
+            
             if roll_player == roll_monster or roll_player > roll_monster:
                 player.speak()
                 roll_20 = g1.roll_dice(20)
