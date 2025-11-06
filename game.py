@@ -24,31 +24,32 @@ class Game:
         
     
     def battle(self, player, monster):
-        roll_player = g1.roll_dice(6)
+        
+        roll_player = self.roll_dice(6)
         roll_player += player.speed
         
-        roll_monster = g1.roll_dice(6)
+        roll_monster = self.roll_dice(6)
         roll_monster += monster.speed
         
-        while player.hp > 0 or monster.hp > 0:
+        while player.hp > 0 and monster.hp > 0:
             
             if roll_player == roll_monster or roll_player > roll_monster:
                 player.speak()
-                roll_20 = g1.roll_dice(20)
+                roll_20 = self.roll_dice(20)
                 roll_20 += player.speed
                 if roll_20 > monster.rating_armor:
-                    rool_attack = g1.roll_dice(6) + player.power
-                    monster.ph -= rool_attack
+                    rool_attack = self.roll_dice(6) + player.power
+                    monster.hp -= rool_attack
                     
                 else:
                     break
             
             if roll_player < roll_monster:
                 monster.speak()
-                roll_20 = g1.roll_dice(20)
+                roll_20 = self.roll_dice(20)
                 roll_20 += monster.speed
                 if roll_20 < player.rating_armor:
-                    rool_attack = g1.roll_dice(6) + monster.power
+                    rool_attack = self.roll_dice(6) + monster.power
                     if monster.weapon == "knife":
                         rool_attack *= 0.5
                         player.hp -= rool_attack
@@ -58,9 +59,7 @@ class Game:
                     if monster.weapon == "axe":  
                         rool_attack *= 1.5
                         player.hp -= rool_attack 
-                    
-               
-        
+                        
     
     def roll_dice(self, sides):
         side6 = 0
@@ -72,10 +71,13 @@ class Game:
             side20 += random.randint(1, 20)
             return side20
             
-    
+
     def start(self):
-        
-        g1 = Game()
-        player = g1.create_player()
-        monster = g1.choos_random_monster() 
-        g1.battle(player, monster)
+        user = Game.show_menu(self)
+        if user == "b":
+            player = self.create_player(self)
+            monster = self.choos_random_monster(self) 
+            self.battle(self,player, monster)
+            return("wwoonn")
+        else:
+            return( "end")

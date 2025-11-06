@@ -1,4 +1,8 @@
+import game  
 
-from .game import Game 
+def main():
+    g = game.Game
+    g.start(g)
+    
 if __name__=="__main__":
-    Game.start()
+    main()

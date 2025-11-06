@@ -1,5 +1,5 @@
 import random
-from ...RPGproject import game
+
 
 class Player:
     professional = ["cure", "fighter"]
@@ -32,11 +32,9 @@ class Player:
         print(f'Hi {self.name} Good luck')
         
     def attack(self):
-        rool_20 = game.Game.roll_dice(20)
-        self.speed += rool_20
-        print(rool_20)
+        pass
     
-p1 = Player("shay")
-p2 = Player("ossi")
-p1.attack()
-print(p2)
+# p1 = Player("shay")
+# p2 = Player("ossi")
+# p1.attack()
+# print(p2)
