@@ -74,31 +74,8 @@ class Game:
             
     
     def start(self):
-        pass
-g1 = Game()
-player = g1.create_player()
-monster = g1.choos_random_monster() 
         
-# roll_player = g1.roll_dice(6)
-# roll_player += player.speed
-        
-# roll_monster = g1.roll_dice(6)
-# roll_monster += monster.speed
-        
-# if roll_player == roll_monster:
-#         player.speak()
-# elif roll_player >= roll_monster:
-#         player.speak()
-# elif roll_player < roll_monster:
-#         monster.speak()
-        
-   
-    
-# g1 = Game()
-# # user_choice = g1.show_menu()
-# player1 = g1.create_player()
-# mons = g1.choos_random_monster()    
-# print(player1.name)
-# print(mons.name)
-# roll1 = g1.roll_dice(6)
-# print(roll1)
+        g1 = Game()
+        player = g1.create_player()
+        monster = g1.choos_random_monster() 
+        g1.battle(player, monster)
